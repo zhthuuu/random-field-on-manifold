@@ -1,6 +1,7 @@
 %% input parameter
 clear; clc;
 addpath ../FEM_toolbox/model
+addpath ../FEM_toolbox/2d
 l = 0.01; kappa = 1/l;  % the length scale
 mu = 0; sigma = 1;  % the mean and standard deviation of gaussian field
 nu = 1; d = 2; % the parameters in the SPDE
@@ -65,3 +66,5 @@ pcenter = (p1+p2+p3)/3;
 writeVTK_vec(pcenter, global_gradu.gradu1, "data/gradu1.vtk");
 writeVTK_vec(pcenter, global_gradu.gradu2, "data/gradu2.vtk");
 writeVTK_vec(pcenter, global_gradu.gradu3, "data/gradu3.vtk");
+
+

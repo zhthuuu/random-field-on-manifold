@@ -2,6 +2,7 @@
 % surface. Here we use a flat square.
 clc; clear;
 addpath ./FEM_toolbox/model
+addpath ./FEM_toolbox/2d
 seed = RandStream('mt19937ar', 'Seed', 1); RandStream.setGlobalStream(seed); %set seed
 file = 'FEM_toolbox/geometry/square/square.stl'; % input brain tissue boundary mesh
 % dir = 'data/'; mkdir(dir); % generated mesh folder
@@ -22,7 +23,7 @@ numNodes = size(P, 1);
 disp(['Done reading mesh ', file]);
 
 %% solve SPDE
-[R, flag, transP] = get_precision_mat(kappa, P, t, normconst);  % the important matrix Q R
+[R, flag, transP] = get_precision_mat_isotropy(kappa, P, t, normconst);  % the important matrix Q R
 disp("Done calculating precision matrix Q");
 
 % modify multiply geometries
