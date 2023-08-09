@@ -1,4 +1,7 @@
 function norm_vec = face_norm(P, tri_sphere)
+    if size(P, 2) ~= 3
+        P = [P, zeros(length(P), 1)];
+    end
     p1= P(tri_sphere(:,1), :);
     p2= P(tri_sphere(:,2), :);
     p3= P(tri_sphere(:,3), :);
